@@ -24,6 +24,5 @@ services:
   i2v-neural:
     image: semitechnologies/img2vec-pytorch:resnet50
     environment:
-      ENABLE_CUDA: 1
-      NVIDIA_VISIBLE_DEVICES: all
+      ENABLE_CUDA: '0'
 ...
