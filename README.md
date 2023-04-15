@@ -19,14 +19,15 @@ Follow these steps to set up and run the image search engine on your local machi
 
 1.  Clone the repository:
 
-    `git clone https://github.com/JonMukaj/image-search-engine.git
-1.  `cd image-search-engine`
+    `git clone https://github.com/JonMukaj/image-search-engine.git`
+    
+2.  `cd image-search-engine`
 
-2.  Install the necessary npm packages:
+3.  Install the necessary npm packages:
 
     `npm install`
 
-3.  Start the Weaviate and img2vec-neural containers using Docker Compose:
+4.  Start the Weaviate and img2vec-neural containers using Docker Compose:
 
     `docker-compose up -d`
 
