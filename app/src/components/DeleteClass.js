@@ -1,5 +1,5 @@
 // DeleteClass.js
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import weaviate from 'weaviate-client';
 
 const client = weaviate.client({
@@ -8,30 +8,18 @@ const client = weaviate.client({
 });
 
 const DeleteClass = () => {
-  const [classNames, setClassNames] = useState([]);
-  const [selectedClass, setSelectedClass] = useState('');
+  const [className, setClassName] = useState('');
 
-  useEffect(() => {
-    const fetchClassNames = async () => {
-      const schema = await client.schema.get();
-      const classes = schema.classes.map((cls) => cls.className);
-      setClassNames(classes);
-      setSelectedClass(classes[0]);
-    };
-
-    fetchClassNames();
-  }, []);
-
-  const handleClassChange = (event) => {
-    setSelectedClass(event.target.value);
+  const handleClassNameChange = (event) => {
+    setClassName(event.target.value);
   };
 
   const deleteClass = async () => {
     try {
-      await client.schema.classDeleter().withClassName(selectedClass).do();
-      alert(`Class '${selectedClass}' successfully deleted!`);
+      await client.schema.classDeleter().withClassName(className).do();
+      alert(`Class '${className}' successfully deleted!`);
     } catch (err) {
-      alert(`Error deleting class '${selectedClass}'.`);
+      alert(`Class '${className}' does not exist!`);
     }
   };
 
@@ -39,13 +27,13 @@ const DeleteClass = () => {
     <div>
       <h3>Delete Class from Weaviate Schema</h3>
       <label htmlFor="className">Class Name:</label>
-      <select id="className" name="className" value={selectedClass} onChange={handleClassChange}>
-        {classNames.map((cls) => (
-          <option key={cls} value={cls}>
-            {cls}
-          </option>
-        ))}
-      </select>
+      <input
+        type="text"
+        id="className"
+        name="className"
+        value={className}
+        onChange={handleClassNameChange}
+      />
       <button onClick={deleteClass}>Delete Class</button>
     </div>
   );
