@@ -27,7 +27,7 @@ Follow these steps to set up and run the image search engine on your local machi
 
     `docker-compose up -d`
 
-    This will spin up two containers:
+    This will spin up three containers:
 
     -   `image-search`: The react app interface
     -   `image-search-engine-weaviate-1`: The Weaviate instance for the vector database.
