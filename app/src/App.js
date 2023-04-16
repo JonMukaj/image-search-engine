@@ -1,22 +1,34 @@
-// App.js or another main component
 import React from 'react';
 import ImageUploader from './components/ImageUploader.js';
 import NearestImageFinder from './components/NearestImageFinder.js';
-import DeleteClass from './components/DeleteClass.js';
-import CreateClass from './components/CreateClass.js';
+import Schema from './components/Schema.js';
+import { Grid } from '@mui/material';
+import styled  from '@emotion/styled';
+
+const StyledBackground = styled.div({
+  background: '#0c1428',
+  minHeight: '100vh',
+  paddingTop: '20px',
+});
 
 const App = () => {
   return (
-    <div>
-      <h1>React Image Uploader and Finder</h1>
-      <ImageUploader />
+    <StyledBackground>
+      <Grid container justifyContent="center" alignItems="center" spacing={4}>
+        <Grid item xs={12} sm={6}>
+          <Schema />
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <ImageUploader />
+        </Grid>
+      </Grid>
       <hr />
-      <NearestImageFinder />
-      <hr />
-      <DeleteClass />
-      <hr />
-      <CreateClass />
-    </div>
+      <Grid container justifyContent="center">
+        <Grid item>
+          <NearestImageFinder />
+        </Grid>
+      </Grid>
+    </StyledBackground>
   );
 };
 

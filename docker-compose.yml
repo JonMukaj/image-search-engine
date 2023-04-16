@@ -1,6 +1,19 @@
 ---
 version: '3.4'
 services:
+  app:
+    build: 
+      context: ./app
+      dockerfile: Dockerfile
+    container_name: image-search
+    ports:
+      - 3000:3000
+    environment:
+      - NODE_ENV=development
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
   weaviate:
     command:
     - --host
