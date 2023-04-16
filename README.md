@@ -1,7 +1,7 @@
 Image Search Engine using Weaviate
 ==================================
 
-This repository contains an implementation of an image search engine using [Weaviate](https://weaviate.io/developers/weaviate/installation/docker-compose), and a knowledge graph that provides search functionality based on machine learning. The project utilizes the `weaviate-ts-client` package to interact with Weaviate and the img2vec-neural module for image similarity.
+This repository contains an implementation of an image search engine using [Weaviate](https://weaviate.io/developers/weaviate/installation/docker-compose), and a knowledge graph that provides search functionality based on machine learning through interface of a simple React app. The project utilizes the `weaviate-ts-client` package to interact with Weaviate and the img2vec-neural module for image similarity.
 
 Inspired by the [Fireship YouTube channel](https://www.youtube.com/c/Fireship).
 
@@ -23,20 +23,17 @@ Follow these steps to set up and run the image search engine on your local machi
     
 2.  `cd image-search-engine`
 
-3.  Install the necessary npm packages:
-
-    `npm install`
-
-4.  Start the Weaviate and img2vec-neural containers using Docker Compose:
+3.  Start the image-search, Weaviate and img2vec-neural containers using Docker Compose:
 
     `docker-compose up -d`
 
     This will spin up two containers:
 
+    -   `image-search`: The react app interface
     -   `image-search-engine-weaviate-1`: The Weaviate instance for the vector database.
     -   `image-search-engine-i2v-neural-1`: The image module using the ResNet50 (Pytorch) model.
 
-### Usage
+### Usage of /scripts directory
 
 1.  Create a new schema in Weaviate by running the following command:
 
