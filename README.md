@@ -33,7 +33,11 @@ Follow these steps to set up and run the image search engine on your local machi
     -   `image-search-engine-weaviate-1`: The Weaviate instance for the vector database.
     -   `image-search-engine-i2v-neural-1`: The image module using the ResNet50 (Pytorch) model.
 
-### Usage of /scripts directory
+4. Access app in [http://localhost:3000/](http://localhost:3000/)
+
+### Usage of `/scripts` directory 
+
+In case you want to experiment by yourself with the source code, you can leverage the `/scripts` directory
 
 1.  Create a new schema in Weaviate by running the following command:
 
